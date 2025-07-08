@@ -4,7 +4,7 @@ const animation2 = lottie.loadAnimation({
     renderer: 'svg',
     loop:true,
     autoplay:false,
-    path: 'https://itsdenji777.github.io/lottie/Controller.json'
+    path: 'https://kasraseydi.github.io/lottie/Controller.json'
 });
 
 function isTouchDevice() {

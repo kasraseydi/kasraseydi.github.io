@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             renderer: 'svg',
             loop: false,
             autoplay: false,
-            path: 'https://itsdenji777.github.io/lottie/Logs.json'
+            path: 'https://kasraseydi.github.io/lottie/Logs.json'
         });
 
         var defaultFrame = 12;
