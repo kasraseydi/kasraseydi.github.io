@@ -2,11 +2,7 @@
 html, body {
 	height: 90%;
 	margin: 0;
-  background-color: #20242b;
-  background-repeat: no-repeat;
-  background-image: -moz-radial-gradient(top, circle, #1d2026 0%, #20242b 70%);
-  background-image: -webkit-radial-gradient(top, circle, #1d2026 0%, #20242b 70%);
-  background-image: radial-gradient(circle at top, #1d2026 0%, #20242b 70%);
+    background-color: #1d2026;
 }
 .container {
 	height: 90%;
