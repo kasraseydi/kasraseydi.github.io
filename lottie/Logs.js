@@ -1,38 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var animationContainer = document.getElementById('logs');
+    const animContainer = document.getElementById('logs');
 
-    if (animationContainer) {
-        var animation = lottie.loadAnimation({
-            container: animationContainer,
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            path: 'https://kasraseydi.github.io/lottie/Logs.json'
+    if (!animContainer) return console.error("Element #logs not found.");
+
+    const animation = lottie.loadAnimation({
+        container: animContainer,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: 'https://kasraseydi.github.io/lottie/Logs.json'
+    });
+
+    const frame12 = 12;
+    const hoverFrame = 60;
+
+    animation.goToAndStop(frame12, true); // initial state
+
+    let direction = 1; // 1 = forward, -1 = backward
+
+    const isTouchDevice = () => ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
+    if (isTouchDevice()) {
+        animation.playSegments([frame12, hoverFrame], true);
+    } else {
+        animContainer.addEventListener('mouseenter', () => {
+            direction = 1;
+
+            // Ensure forward always starts from current frame or frame12 if below
+            const startFrame = Math.max(animation.currentFrame, frame12);
+            animation.goToAndStop(startFrame, true);
+
+            animation.setDirection(direction);
+            animation.play();
         });
 
-        var defaultFrame = 12;
-        var hoverFrame = 60;
+        animContainer.addEventListener('mouseleave', () => {
+            direction = -1;
+            animation.setDirection(direction);
+            animation.play();
+        });
 
-        animation.goToAndStop(defaultFrame, true); // Set default state
+        // Clamp reverse frames without stopping the animation
+        animation.addEventListener('enterFrame', () => {
+            if (direction === -1 && animation.currentFrame < frame12) {
+                animation.currentFrame = frame12;
+            }
+        });
 
-        // Check if the device has touch support
-        function isTouchDevice() {
-            return ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-        }
-
-        if (isTouchDevice()) {
-            animation.playSegments([defaultFrame, hoverFrame], true); // Auto-hover effect on touch devices
-        } else {
-            // Normal hover events for non-touch devices
-            animationContainer.addEventListener('mouseenter', function () {
-                animation.playSegments([defaultFrame, hoverFrame], true);
-            });
-
-            animationContainer.addEventListener('mouseleave', function () {
-                animation.playSegments([hoverFrame, defaultFrame], true);
-            });
-        }
-    } else {
-        console.error("Element #logs not found. Double-check the HTML!");
+        // Ensure forward lands exactly on hoverFrame
+        animation.addEventListener('complete', () => {
+            if (direction === 1) animation.goToAndStop(hoverFrame, true);
+        });
     }
 });
