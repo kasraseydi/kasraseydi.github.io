@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         renderer: 'svg',
         loop: false,
         autoplay: false,
-        path: 'https://kasraseydi.github.io/lottie/Logs.json'
+        path: '/lottie/Logs.json'
     });
 
     const frame12 = 12;
