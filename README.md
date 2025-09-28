@@ -1,4 +1,4 @@
-# [Hub](https://kasraseydi.github.io/)
+# [Hub](https://kasra-seydi.ir)
 A link tree to all of the different urls of my website.
 
 # [About Me](https://kasraseydi.github.io/About-Me)
