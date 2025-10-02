@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <url>
+    <loc>https://kasra-seydi.ir/</loc>
+    <lastmod>2025-09-29T16:53:24+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
 
-<url>
-  <loc>https://kasra-seydi.ir/</loc>
-  <lastmod>2025-09-29T16:53:24+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
+  <url>
+    <loc>https://fa.kasra-seydi.ir/</loc>
+    <lastmod>2025-09-29T16:53:24+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
 
-<url>
-  <loc>https://fa.kasra-seydi.ir/</loc>
-  <lastmod>2025-09-29T16:53:24+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
+  <url>
+    <loc>https://kasra-seydi.ir/DevLog/</loc>
+    <lastmod>2025-09-29T16:52:49+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 
-<url>
-  <loc>https://kasra-seydi.ir/DevLog/</loc>
-  <lastmod>2025-09-29T16:52:49+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kasra-seydi.ir/About-Me/</loc>
-  <lastmod>2025-09-29T16:52:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kasra-seydi.ir/My-Projects/</loc>
-  <lastmod>2025-09-29T16:53:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kasra-seydi.ir/Contact-Me/</loc>
-  <lastmod>2025-09-29T16:53:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kasra-seydi.ir/Games/</loc>
-  <lastmod>2025-09-29T16:53:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+  <url>
+    <loc>https://kasra-seydi.ir/About-Me/</loc>
+    <lastmod>2025-09-29T16:52:48+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://kasra-seydi.ir/My-Projects/</loc>
+    <lastmod>2025-09-29T16:53:20+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://kasra-seydi.ir/Contact-Me/</loc>
+    <lastmod>2025-09-29T16:53:05+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://kasra-seydi.ir/Games/</loc>
+    <lastmod>2025-09-29T16:53:10+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 
 </urlset>
