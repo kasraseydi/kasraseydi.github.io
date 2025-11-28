@@ -90,17 +90,38 @@ a {
 	user-select: none;
 }
 
-.aeu-signature {
-	position: fixed;
-	top: 5px;
-	left: 50%;
-	transform: translate(-50%);
-	font-size: 15px;
-	line-height: 30px;
-	background-color: #154877;
-	padding: 5px 10px;
-	border-radius: 25px;
-	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+.devlog-wrapper {
+  position: relative;
+  display: inline-block;
+  transition: text-shadow,scale 0.3s ease;
 }
-.aeu-signature { font-family: "Quicksand"; }
-.aeu-signature > img { height: 30px; }
+
+.devlog-wrapper:hover {
+  text-shadow: 0 0 10px #0a7ae2;
+  scale: 1.05
+}
+
+.game-wrapper {
+  position: relative;
+  display: inline-block;
+  transition: text-shadow,scale 0.3s ease;
+}
+
+.game-wrapper:hover {
+  text-shadow: 0 0 10px #0a7ae2;
+  scale: 1.05
+}
+
+.log {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 85%;
+}
+
+.game {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 72%;
+}
