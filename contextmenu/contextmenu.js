@@ -157,6 +157,8 @@ menu.addEventListener("click", async (e) => {
     menu.classList.remove("show");
 });
 
+// EXTRA CONTENT
+
 (function() {
   // 1. Inject CSS
   const style = document.createElement('style');
@@ -167,11 +169,15 @@ menu.addEventListener("click", async (e) => {
     left:0;
     width:100%;
     height:100%;
-    background:black;
+    background: #1d2026;
     opacity:1;
     pointer-events:none;
     transition: opacity 0.5s;
     z-index:9999;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
   }
   .transition-overlay.active {
     opacity:1;
@@ -180,6 +186,25 @@ menu.addEventListener("click", async (e) => {
   .transition-overlay.fade-out {
     opacity:0;
   }
+
+  .overlay-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 7px 7px rgba(255, 255, 255, 0.5));
+  }
+  .spinner {
+    border: 8px solid #242830b0;
+    border-top: 8px solid #2d74b5;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
   `;
   document.head.appendChild(style);
 
@@ -187,19 +212,30 @@ menu.addEventListener("click", async (e) => {
   const overlay = document.createElement('div');
   overlay.className = 'transition-overlay';
   overlay.id = 'overlay';
+
+  // Add logo
+  const logo = document.createElement('img');
+  logo.src = 'https://kasra-seydi.ir/favicon.svg'; // put your logo URL here
+  logo.className = 'overlay-logo';
+  overlay.appendChild(logo);
+
+  // Add spinner
+  const spinner = document.createElement('div');
+  spinner.className = 'spinner';
+  overlay.appendChild(spinner);
+
   document.body.appendChild(overlay);
 
-  // 3. Fade-in on page load and back/forward
+  // 3. Fade-in on page load / back-forward
   function fadeInOverlay() {
-    // always remove fade-out quickly to trigger fade-in
     overlay.classList.remove('fade-out');
     setTimeout(() => overlay.classList.add('fade-out'), 10);
   }
 
   window.addEventListener('DOMContentLoaded', fadeInOverlay);
-  window.addEventListener('pageshow', fadeInOverlay); // handles back/forward cache
+  window.addEventListener('pageshow', fadeInOverlay);
 
-  // 4. Fade-out on link click
+  // 4. Fade-out + spinner on link click
   document.addEventListener('click', function(e) {
     const link = e.target.closest('a');
     if (!link) return;
@@ -207,8 +243,9 @@ menu.addEventListener("click", async (e) => {
     if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
 
     e.preventDefault();
-    overlay.classList.remove('fade-out'); // fade back in
+    overlay.classList.remove('fade-out');
     overlay.classList.add('active');
+
     setTimeout(() => window.location = href, 500);
   });
 })();
