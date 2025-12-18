@@ -125,3 +125,15 @@ a {
   transform: translateX(-50%);
   top: 72%;
 }
+
+.play {
+	position: fixed;
+	left: -10px;
+	bottom: -10px;
+    transition: filter,scale 0.3s ease;
+}
+
+.play:hover {
+  filter: drop-shadow(0 0 10px #0a7ae2);
+  scale: 1.1;
+}
