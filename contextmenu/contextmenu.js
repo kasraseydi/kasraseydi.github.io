@@ -156,3 +156,59 @@ menu.addEventListener("click", async (e) => {
 
     menu.classList.remove("show");
 });
+
+(function() {
+  // 1. Inject CSS
+  const style = document.createElement('style');
+  style.innerHTML = `
+  .transition-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    opacity:1;
+    pointer-events:none;
+    transition: opacity 0.5s;
+    z-index:9999;
+  }
+  .transition-overlay.active {
+    opacity:1;
+    pointer-events:all;
+  }
+  .transition-overlay.fade-out {
+    opacity:0;
+  }
+  `;
+  document.head.appendChild(style);
+
+  // 2. Inject overlay HTML
+  const overlay = document.createElement('div');
+  overlay.className = 'transition-overlay';
+  overlay.id = 'overlay';
+  document.body.appendChild(overlay);
+
+  // 3. Fade-in on page load and back/forward
+  function fadeInOverlay() {
+    // always remove fade-out quickly to trigger fade-in
+    overlay.classList.remove('fade-out');
+    setTimeout(() => overlay.classList.add('fade-out'), 10);
+  }
+
+  window.addEventListener('DOMContentLoaded', fadeInOverlay);
+  window.addEventListener('pageshow', fadeInOverlay); // handles back/forward cache
+
+  // 4. Fade-out on link click
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.href;
+    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+    e.preventDefault();
+    overlay.classList.remove('fade-out'); // fade back in
+    overlay.classList.add('active');
+    setTimeout(() => window.location = href, 500);
+  });
+})();
